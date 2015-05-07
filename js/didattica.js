@@ -134,7 +134,7 @@ $(document).ready(
                 
                 
                 // Inserire un valore che renda l'identificativo univoco
-                var divId = "div"+e.target.id;
+                //var divId = "div"+e.target.id;
                 var canvasId = "canvas"+e.target.id+getProgressiveNumber();
                 
                 
