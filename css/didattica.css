@@ -1,0 +1,63 @@
+#objectMenu
+{
+    position: absolute;
+    left:10px;
+    top:10px;
+    
+    width: 280px;
+    height: 470px;
+   
+    overflow: auto;
+    
+    border: 1px solid lightgray;    
+    background-color: white;
+}
+
+#tableObject
+{
+    font-size: 12px;
+    color: black;
+
+}
+
+.menu:hover
+{
+   background-color: lightgray;
+
+}
+
+canvas:hover
+{
+   background-color: lightgray;
+
+}
+
+
+canvas
+{
+    background-color: transparent;
+
+}
+
+.draggable {
+ /* background-color: #29e;*/
+  /*color: white;*/
+  font-size: 20px;
+  font-family: sans-serif;
+  
+    
+    padding: 0px;
+    margin: 0px;
+    
+  /*padding: 20px;
+  margin: 30px 20px;*/
+
+  /*width: 120px;*/
+    
+    background-color: transparent;
+
+  /* This makes things *much* easier */
+  /*box-sizing: border-box;*/
+}
+
+

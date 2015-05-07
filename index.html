@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Ridimensionamento e taglio dell'immagine</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="canvas, javascript, HTML5, resizing, images" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+
+
+			</div>
+			<div class="content">
+				<header class="codrops-header">
+					<h1>Ridimensionamento e taglio dell'Immagine</h1>
+				</header>
+				<div class="component">
+					<div class="overlay">
+						<div class="overlay-inner">
+						</div>
+					</div>
+					<!-- This image must be on the same domain as the demo or it will not work on a local file system -->
+					<!-- http://en.wikipedia.org/wiki/Cross-origin_resource_sharing -->
+					<img class="resize-image" src="img/foto2.jpg" alt="image for resizing">
+					<button class="btn-crop js-crop">Taglia<img class="icon-crop" src="img/crop.svg"></button>
+                    
+                    <button class="btn-openfile">Apri</button>
+                    
+				</div>
+				<div class="a-tip">
+                    <p>Fai click sul pulsante <span>Apri</span> per poter scegliere un'immagine su cui operare</p>
+                    <p>Usa lo <span>SCROLL</span> del mouse per ingrandire o rimpicciolire l'immagine... oppure:</p>
+                    <p>...trascina gli "angoli" dell'immagine per ridimensionarla</p>
+                    <p><strong>Suggerimento:</strong> tieni premuto <span>SHIFT</span> mentre ridimensioni l'immagine per mantenere le proporzioni originali</p>
+                    <p>Posiziona, tramite trascinamento, la porzione di immagine di tuo interesse all'interno del riquadro verde. Poi fai click sul pulsante <span>Taglia</span> </p>
+                    
+				</div>
+
+			</div><!-- /content -->
+			<!-- Related demos -->
+
+		</div> <!-- /container -->
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/component.js"></script>
+	</body>
+</html>

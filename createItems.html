@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Crezione degli oggetti e assegnazione dei Tag</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="canvas, javascript, HTML5, resizing, images" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/createItem.css" />        
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/interact.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/component.css" /> -->
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->        
+        <script src="js/dataStructure.js"></script>
+        <script src="js/createItems.js"></script>    
+	</head>
+	<body>
+		<div id='cntr' class="container">
+			<!-- Top Navigation -->
+			<!--
+            <div class="codrops-top clearfix">           
+
+			</div> -->
+			<div id='cnt' class="content">
+				<header class="codrops-header">
+					<h1>Rilievo e definizione degli oggetti</h1>
+				</header>
+				
+                <div id='cpn' class="component">                   
+                    
+                    <div id="sketch">
+                        <canvas id="paint" width="400" height="300">                    
+                        </canvas>
+                    </div>
+                    
+                    <div id="sketch2">
+                        <canvas id="paint2" width="400" height="300">               
+                      </canvas>                    
+                    </div>
+                    
+                    <div class="a-tip2">
+                        <p>
+                            Ricalca il soggetto di interesse. <br/> Scrivi nel campo  sottostante il nome
+                            che vuoi <br/> assegnargli, poi fai click su "Crea Nuovo"
+                        </p>
+                    </div>
+                    
+                    
+                    <button id='cleanLeftCanvas' class="btn-openfile">Pulisci</button>
+                    
+                    
+                    <button id='addNewObject' class="btn-openfile">Crea oggetto</button>
+                    <input type="text" id="editObjectName" name="fname"></input>              
+                    
+                    <!-- Aggiunta di una parola chiave -->
+                    
+                    <button id='addTag' class="btn-openfile">Aggiungi Tag</button>
+                    <input type="text" id="newTagName" value="t1"></input> 
+                    
+                    <!-- Rimozione delle parole chiave -->
+                    
+                    <button id='removeTag' class="btn-openfile">Rimuovi Tag</button> 
+                    
+                    <!-- Combobox per la selezione di una parola chiave -->
+                    
+                    <div id='divSelectTag'>
+                        <select id='selectTag'> 
+                            <!-- Il contenuto tra questi tag viene inserito da js-->
+                        </select>          
+                    </div> 
+            
+                    <!-- Rimozione degli oggetti -->
+                    <button id='deleteObject' class="btn-openfile">Elimina oggetto selezionato</button>
+                    
+                    
+                    <!-- Combobox per la selezione degli oggetti da rimouovere-->                    
+                    <div id='divSelectObject'>
+                        <select id='selectObject'> 
+                            <!-- Il contenuto tra questi tag viene inserito da js-->                            
+                        </select>          
+                    </div> 
+            
+                    <!-- Rimozione degli oggetti -->
+                    <button id='saveObjects' class="btn-openfile">Salvataggio</button>
+            
+                </div>
+                
+                <div class="a-tip">
+                    <p>Ricalca i contorni del soggetto interessato, tenendo premuto il tasto sinistro del mouse</p>
+                    <p>Fai click su <span>Crea Nuovo</span> dopo aver inserito un nome nel campo a fianco</p>
+                    
+                    <p>Quando a destra appare l'immagine ricalcata, puoi aggiungere delle "Parole Chiave" (Tag)</p>
+                    <p>Per aggiungere parole chiave è sufficiente fare click sul pulsante <span>Aggiungi Tag</span>, 
+                        indicando nel campo sottostante un nome </p>
+                    <p>Se ti sei sbagliato, puoi cancellare una parola chiave, facendo click sul pulsante 
+                        <span>Rimuovi Tag</span> dopo averla selezionata dal menu sottostante</p>
+                    <p>Se vuoi cancellare un oggetto (e in un sol colpo le parole chiave associate) fai click 
+                        sul pulsante <span>Elimina Oggetto Selezionato</span> dopo averlo selezionato nel menu in alto a                        sinistra</p>     
+        
+                    <p>Il pulsante <span>Salvataggio</span> ti permette di salvare il tuo lavoro e di renderlo 
+                        disponibile per le fasi successive</p>
+        </div>
+        
+			</div><!-- /content -->
+		</div> <!-- /container -->       
+	</body>
+</html>
