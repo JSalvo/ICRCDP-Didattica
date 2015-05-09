@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/didattica.css" />  
         
         <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery-ui.js"</script>
         <script src="js/interact.js"></script>
 
 		<!-- <link rel="stylesheet" type="text/css" href="css/component.css" /> -->
@@ -49,6 +50,24 @@
                 
                     <!-- Qui verranno inseriti i div mobili disegnati da js -->
                 
+                    
+                    
+                    <button id='newSetButton' class="btn-openfile">Nuovo Insieme</button>
+                    <input type="text" id="newSetNameEdit" value=""></input> 
+                    
+                    
+                    
+                    <div id="eraseZone">
+                        Trascina qui sopra un oggetto per eliminarlo                        
+                    </div>
+                    
+                    <div id='divSelectSet'>
+                        <select id='selectSet'> 
+                            <!-- Il contenuto tra questi tag viene inserito da js-->                            
+                        </select>          
+                    </div> 
+                    
+                    
                 </div>
                 
                 <div class="a-tip">

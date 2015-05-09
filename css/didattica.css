@@ -13,6 +13,55 @@
     background-color: white;
 }
 
+#eraseZone
+{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: red;
+    
+    width: 100px;
+    height: 100px;
+    
+    border: 2px lightgray solid;
+    background-color: white;
+}
+
+
+#newSetButton {
+	position: absolute;
+	vertical-align: top;	
+    top: 10px;
+    right: 400px;
+	padding: 6px 10px;
+	z-index: 999;
+	background-color: blue;/*#24a430;*/
+	border: none;
+	border-radius: 5px;
+	color: #FFF;
+}
+
+#newSetNameEdit 
+{
+    position: absolute;
+	vertical-align: top;	
+    top: 10px;
+    right: 200px;
+	z-index: 999;    
+}
+
+#divSelectSet
+{
+    position: absolute;
+    
+    right: 10px;
+    top: 10px;
+
+
+
+}
+
+
 #tableObject
 {
     font-size: 12px;
@@ -59,5 +108,6 @@ canvas
   /* This makes things *much* easier */
   /*box-sizing: border-box;*/
 }
+
 
 

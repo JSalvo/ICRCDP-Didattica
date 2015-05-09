@@ -4,6 +4,57 @@ var objects = {};
 var sets = {}; 
 
 
+/*
+function GraphicObject(name)
+{
+    this.name = name;
+    this.canvas = $('<canvas></canvas>');
+    this.objectPosition = [0,0];    
+    
+    this.getX = function()
+    {
+        return this.objectPosition[0];   
+    };
+
+    this.getY = function()
+    {
+        return this.objectPosition[1];
+    };
+    
+    this.setX = function(x)
+    {
+        this.objectPosition[0] = x;
+    };
+    
+    this.setY = function(y)
+    {
+        this.objectPosition[1] = y;
+    };
+    
+    
+}
+
+var go = new GraphicObject("prova");
+
+go.setX(12);
+go.setY(13);
+
+console.log(go.getX());*/
+
+
+
+
+/*
+function Set(name)
+{
+    this.name = name;
+    this.objects = {};
+    
+
+}*/
+
+
+
 /********************************************/
 // VISUALIZZAZIONE DATI DELLA STRUTTURA DATI
 /********************************************/
@@ -17,8 +68,6 @@ function getPoints(objectName)
     }
     else
     {
-        // Sarebbe meglio una eccezione visto che questo errore non può essere generato dall'utente
-        //alert('L\'oggetto di cui vuoi la lista di punti non esite. Contattare l\'assistenza.');
         console.log('L\'oggetto di cui vuoi la lista di punti non esite.');
         return null;
     }     
@@ -199,7 +248,7 @@ function setTagPosition(objectName, tagName, tagPosition)
 // RIMOZIONE DATI DELLA STRUTTURA DATI
 /********************************************/
 
-// Rimouve dalla struttura dati un oggetto nominato name
+// Rimuove dalla struttura dati un oggetto nominato name
 function removeObject(name)
 {
     if (name in objects)
@@ -229,7 +278,7 @@ function removeSet(name)
     }
 }
 
-// Rimuovere dalla struttura dati un oggetto objectName associato all'insieme setName
+// Rimuove dalla struttura dati un oggetto objectName associato all'insieme setName
 function removeObjectFromSet(setName, objetName)
 {
     if (setName in sets)
@@ -288,11 +337,11 @@ function saveDataStructureInLocalStorage()
 {
     var dataStructureToSave = {};
     
+    // Inserisco objects e sets in un unica struttura dati
     dataStructureToSave['objects'] = objects;
-    dataStructureToSave['sets'] = sets;
-    
-    //localStorage.setItem('ircdp_obj_datastructures', JSON.stringify(objects));
+    dataStructureToSave['sets'] = sets;    
 
+    // Converto la struttura dati in codice json e salvo la stringa risultato in localStorage
     localStorage.setItem('ircdp_obj_datastructures', JSON.stringify(dataStructureToSave));
 
 }
@@ -302,32 +351,40 @@ function loadDataStructureFromLocalStorage()
 {
     if (localStorage.getItem('ircdp_obj_datastructures'))
     {    
-        var dataStructure = {};
-        
+        var dataStructure = {};        
                 
-        //objects = JSON.parse(localStorage.getItem('ircdp_obj_datastructures'));  
+        // Converto la stringa json contenuta in ircdp_ojb_datastructures in una struttura dati
         dataStructure = JSON.parse(localStorage.getItem('ircdp_obj_datastructures'));
+       
+        // Estraggo dalla struttura dati gli oggetti objects e sets
         objects = dataStructure['objects'];
         sets = dataStructure['sets'];
     }
-    else
+    else // ... se ircdp_ojb_datastructures non è definito in localStorage, lo definisco
     {
         localStorage.setItem('ircdp_obj_datastructures', "{'objects': {}, 'sets': {}}");
-        console.log("ircdp_obj_datastructures non esiste in localstorage");
+        console.log("ircdp_obj_datastructures non esiste in localstorage e verrà creato");
     }
 }
 
 // Ad ogni chiamata questa funzione genera un valore progressivo
 function getProgressiveNumber()
 {
+    // Uso una variabile in localStorage per memorizzare il progresso di un valore intero
+
+    // Se automaticId esiste in local storage
     if (localStorage.getItem("automaticId"))
     {
+        // Prendo il valore di automaticId lo converto ad int e lo incremento di 1
         var result = parseInt(localStorage.getItem("automaticId")) + 1;   
+       
+        // Re-imposto il nuovo valore di automaticId
         localStorage.setItem("automaticId", ""+result);
         return result;
     }
     else
     {
+        // Creo la variabile automaticId in localStorage e la imposto a 0
         localStorage.setItem("automaticId", "0");
         return 0;    
     }
@@ -362,7 +419,7 @@ function getImageEdge(pointList)
     return([minx, maxx, miny, maxy]);
 }
 
-
+// Questa la utilizzeremo per le traduzioni
 function tr(stringValue)
 {
     return(stringValue);
