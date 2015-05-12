@@ -186,3 +186,10 @@ a:hover, a:focus {
 		display: none;
 	}
 }
+#divOpenFile {
+    position: absolute;
+    vertical-align: bottom;
+    left: 100px;
+    bottom: 35px;   
+    background-color: black;
+}

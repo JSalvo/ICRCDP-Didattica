@@ -35,11 +35,38 @@
 					<!-- This image must be on the same domain as the demo or it will not work on a local file system -->
 					<!-- http://en.wikipedia.org/wiki/Cross-origin_resource_sharing -->
 					<span>
-                    <img class="resize-image" src="img/foto2.jpg" alt="image for resizing">
+                        <script>
+                            var imgName = "";
+                            
+                            if ('ImageToLoad' in localStorage)
+                            {
+                                imgName =  localStorage.getItem('ImageToLoad');
+                            }
+                            else
+                                localStorage.setItem('ImageToLoad', '');
+                            //alert(imgName);
+                            
+                            document.write("<img id='imgp' class='resize-image' src='img/" + imgName + "'>");
+                        
+                        </script>
+                        
+                        
+                        
                     </span>
 					<button class="btn-crop js-crop">Taglia<img class="icon-crop" src="img/crop.svg"></button>
                     
-                    <button class="btn-openfile">Apri</button>
+                    
+                    <form>
+                    
+                        
+                    <div id="divOpenFile">
+                        <input id="files" type="file" name="files[]"/>
+                    </div>
+                    
+                    <button id="openFileDialogButton" class="btn-openfile" >Carica</button>
+                    
+                    </form>
+                    
                     
 				</div>
 				<div class="a-tip">
@@ -57,5 +84,6 @@
 		</div> <!-- /container -->
 		<script src="js/jquery-2.1.1.min.js"></script>
 		<script src="js/component.js"></script>
+        <script src="js/index.js"></script>
 	</body>
 </html>
