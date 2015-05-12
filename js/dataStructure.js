@@ -4,6 +4,7 @@ var objects = {};
 var sets = {}; 
 
 
+
 /*
 function GraphicObject(name)
 {
@@ -122,14 +123,14 @@ function newSet(name)
     }
     else
     {    
-        sets[name] = {"objects": [], "info": {}};
+        sets[name] = {"objects": {}, "info": {}};
         return true;
     }        
 }
 
 
 // Aggiunge l'oggetto objectName all'insieme setName
-function addObjectToSet(setName, objectName)
+function addObjectToSet(setName, objectName, canvasId)
 {
     if (setName in sets)
     {
@@ -141,7 +142,7 @@ function addObjectToSet(setName, objectName)
         }
         else
         {
-            sets['setName']['objects'][objectName] = {'position': [0, 0]};
+            sets[setName]['objects'][objectName] = {'position': [0, 0], 'canvas_id': canvasId};
             return(true);        
         }    
     }
@@ -150,6 +151,125 @@ function addObjectToSet(setName, objectName)
         alert("L'insieme a cui stai tentando di associare il nuovo oggetto non esiste");
         return false;
     }
+}
+
+
+function addInfoToSet(setName)
+{
+    if (setName in sets)
+    {
+        var fiveW = {};
+        var notes;
+        
+        fiveW['who'] = document.getElementById('whoedit').value;
+        fiveW['what'] = document.getElementById('whatedit').value;
+        fiveW['when'] = document.getElementById('whenedit').value;
+        fiveW['where'] = document.getElementById('whereedit').value;
+        fiveW['why'] = document.getElementById('whyedit').value;
+
+        notes = document.getElementById('notetextarea').value;
+        
+        console.log(notes);
+        
+        sets[setName]['fiveW'] = fiveW;
+        sets[setName]['notes'] = notes;
+    
+    }
+    else
+    {
+        alert("L'insieme a cui stai tentando di aggiungere info non esiste");
+        console.log("L'insieme a cui stai tentando di aggiungere info non esiste");
+        return false;
+    } 
+}
+
+
+function loadInfoFromSet(setName)
+{
+    if (setName in sets)
+    {
+        if ('fiveW' in sets[setName] && 'notes' in sets[setName])
+        {
+            var fiveW = sets[setName]['fiveW'];
+            var notes = sets[setName]['notes'];
+            console.log("Sono qui");
+            
+            document.getElementById('whoedit').value = fiveW['who'];
+            document.getElementById('whatedit').value = fiveW['what'];
+            document.getElementById('whenedit').value = fiveW['when'];
+            document.getElementById('whereedit').value = fiveW['where'];
+            document.getElementById('whyedit').value = fiveW['why']; 
+    
+            document.getElementById('notetextarea').value = notes;
+            
+        }
+        else
+        {
+            document.getElementById('whoedit').value = "";
+            document.getElementById('whatedit').value = "";
+            document.getElementById('whenedit').value = "";
+            document.getElementById('whereedit').value = "";
+            document.getElementById('whyedit').value = ""; 
+    
+            document.getElementById('notetextarea').value = "";  
+            
+            
+            console.log("fiveW e notes non esistono");  
+        }
+    
+    
+    }
+    else
+    {
+        alert("L'insieme da cui stai tentanto di prelevare info non esiste");
+        console.log("L'insieme da cui stai tentanto di prelevare info non esiste");
+        return false;
+    }    
+}
+
+
+
+
+// Re-imposta il canvasId associate all'objectName appartenente all'insieme setName
+function setCanvasIdObjectSet(setName, objectName, canvasId)
+{
+    if (setName in sets)
+    {
+        if (objectName in sets[setName]['objects'])
+        {
+            sets[setName]['objects'][objectName]['canvas_id'] = canvasId;
+            
+            return(true);        
+        }
+        else
+        {           
+            alert("Oggetto non presente nell'insieme specificato");
+            return(false);        
+        }    
+    }
+    else
+    {
+        alert("L'insieme specificato non esiste");
+        return false;
+    }
+
+}
+
+function removeObjectFromSetByCanvasId(setName, canvasId)
+{
+    //console.log("Set Name: " + setName + " Canvas id: " + canvasId );
+    
+    for (var objectName in sets[setName]['objects'])
+    {
+        console.log("Nome dell'oggetto: " + objectName);
+        
+        if (sets[setName]['objects'][objectName]['canvas_id'] == canvasId)
+        {
+            delete sets[setName]['objects'][objectName];
+            return true;
+        }    
+    }
+    return false;
 }
 
 // Imposta la posizione dell'oggetto objectName, associato all'insieme setName
@@ -174,6 +294,35 @@ function setObjectSetPosition(setName, objectName, objectPosition)
         return false;    
     }   
 }
+
+function setAllObjectsSetPosition(setName)
+{
+    /*
+    var i;
+    var = $('#selectObject option:selected').text();
+    
+    for (i=0; i<$('.tags').length; i++)
+    {
+        var tagName = $('.tags')[i].id;
+        var offset = $('#'+tagName).position();           
+        
+        setTagPosition(selectedObject, tagName, [Math.floor(offset.left), Math.floor(offset.top)]);
+
+        console.log(offset.left + ", " + offset.top);        
+    }*/
+    
+    for (var objectName in sets[setName]['objects'])
+    {
+        var canvasId = sets[setName]['objects'][objectName]['canvas_id'];
+        console.log(canvasId);
+        var offset = $('#'+canvasId).position();
+        
+
+        
+        setObjectSetPosition(setName, objectName, [Math.floor(offset.left), Math.floor(offset.top)]);    
+    }
+}
+
 
 // Associa ad un determinato oggetto della strutturadati una lista di punti
 function setPoints(objectName, pointsList)
@@ -241,6 +390,7 @@ function setTagPosition(objectName, tagName, tagPosition)
         return false;
     }        
 }
+
 
 
 

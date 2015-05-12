@@ -35,11 +35,13 @@
 			</div> -->
 			<div id='cnt' class="content">
 				<header class="codrops-header">
-					<h1>Didattica - Insiemi</h1>
+					<h1><a href="createItems.html"><- </a>Didattica</h1>
 				</header>
 				
                 <div id='cpn' class="component">  
-                    <div id='objectMenu'>
+                    
+                    <!--- Lista degli oggetti da inserire negli insiemi--->
+                    <div id='objectMenu' class="leftSideBars">
                         <table id='tableObject' width="250">
       
                             
@@ -48,19 +50,72 @@
                         </table>                        
                     </div>           
                 
+                    <!--- Menu per gli agenti cognitivi--->
+                    <div id="cognitiveAgents" class="leftSideBars">
+                        <p id="tip" class="tips">
+                            Relativamente all'insieme che hai composto, prova a rispondere
+                            brevemente alle seguenti domande:
+                        </p>
+                        
+                        <p>Chi? <br/>
+                            <input type="text" id="whoedit" class="fiveWEdits" value=""></input> 
+                        </p>
+                        
+                        <p>Cosa? <br/>
+                            <input type="text" id="whatedit" class="fiveWEdits" value=""></input> 
+                        </p>
+        
+                        <p>Quando? <br/>
+                            <input type="text" id="whenedit" class="fiveWEdits" value=""></input>
+                        </p>
+
+                        <p>Dove? <br/>
+                            <input type="text" id="whereedit" class="fiveWEdits" value=""></input>
+                        </p>
+
+                        <p>Perché? <br/>    
+                            <input type="text" id="whyedit" class="fiveWEdits" value=""></input>  
+                        </p>
+
+                    </div>  
+             
+                    
+                    <!--- Menu per l'inserimento delle note --->
+                    <div id='setNotes' class="leftSideBars">
+                        <p id="tip2" class="tips">
+                            In questo spazio puoi inserire, liberamente, informazioni sull'insieme che 
+                            hai creato. Prova ad iniziare con una breve descrizione 
+                            (utilizzando gli agenti cognitivi come aiuto), poi continua,
+                            inserendo pensieri, ipotesi e tutto ciò che ritieni rilevante. Una discussione in
+                            classe, con l'insegnante e i compagni, dovrebbe darti molti spunti di 
+                            riflessone ...
+                        </p>
+                        
+                        <textarea id="notetextarea" rows="100" value=""></textarea> 
+                        
+                    </div>
+                    
+                    <button id='showObjectListButton' class="btn-openfile">Lista</button>
+                    <button id='show5WButtons' class="btn-openfile">Agenti Cognitivi</button>
+                    <button id='showSetNotesButton' class="btn-openfile">Note</button>
+                    
+                    
+                    
                     <!-- Qui verranno inseriti i div mobili disegnati da js -->
                 
                     
                     
                     <button id='newSetButton' class="btn-openfile">Nuovo Insieme</button>
                     <input type="text" id="newSetNameEdit" value=""></input> 
-                    
-                    
-                    
+                    <button id='saveButton' class="btn-openfile">Salva</button>                  
+                
+                
                     <div id="eraseZone">
+                        
                         Trascina qui sopra un oggetto per eliminarlo                        
                     </div>
                     
+                    <button id='deleteSetButton' class="btn-openfile">Elimina Insieme</button>
                     <div id='divSelectSet'>
                         <select id='selectSet'> 
                             <!-- Il contenuto tra questi tag viene inserito da js-->                            
@@ -71,8 +126,22 @@
                 </div>
                 
                 <div class="a-tip">
-                    <p>Fai click sull'immagine di destra che vuoi importare sullo sfondo</p>
-                    <p>Fai click su <span>Crea Nuovo</span> dopo aver inserito un nome nel campo a fianco</p>
+                    <p>Crea un nuvo insieme, oppure scegline uno esistente (tramite il selettore in alto 
+                    a destra)</p>
+                    
+                    <p>Fai click sugli oggetti della lista di sinistra che vuoi aggiungere all'insieme 
+                    selezionato</p>
+                    
+                    <p>Disponili come vuoi (ricordati ogni tanto di salvare) </p>
+                                        
+                    <p>Fai click su <span>Agenti Cognitivi</span> e prova a rispondere alle domande che
+                    appariranno</p>
+                    
+                    <p>Confrontati in classe con i tuoi compagni e l'insegnante. Discuti, formula ipotesi
+                    e pensieri e raccogli tutte le informazioni nel blocco note che puoi raggiungere 
+                    facendo click sul pulsante <span>Note</span></p>
+                    
+                    
                 </div>
 			</div><!-- /content -->
 		</div> <!-- /container -->       

@@ -1,3 +1,68 @@
+.leftSideBars
+{
+    position: absolute;
+    left:10px;
+    top:10px;
+    
+    width: 280px;
+    height: 420px;
+   
+    overflow: auto;
+    
+    border: 1px solid lightgray;    
+    background-color: white;
+    color: black;
+
+}
+
+
+#showObjectListButton
+{
+	position: absolute;
+	vertical-align: bottom;	
+    bottom: 10px;
+    left: 10px;
+	padding: 6px 10px;
+	z-index: 999;
+	background-color: blue;/*#24a430;*/
+	border: none;
+	border-radius: 5px;
+	color: #FFF;
+
+}
+
+#show5WButtons
+{
+	position: absolute;
+	vertical-align: bottom;	
+    bottom: 10px;
+    left: 70px;
+	padding: 6px 10px;
+	z-index: 999;
+	background-color: blue;/*#24a430;*/
+	border: none;
+	border-radius: 5px;
+	color: #FFF;
+}
+
+#showSetNotesButton
+{
+	position: absolute;
+	vertical-align: bottom;	
+    bottom: 10px;
+    left: 210px;
+	padding: 6px 10px;
+	z-index: 999;
+	background-color: blue;/*#24a430;*/
+	border: none;
+	border-radius: 5px;
+	color: #FFF;
+}
+
+
+
+
+/*
 #objectMenu
 {
     position: absolute;
@@ -13,9 +78,29 @@
     background-color: white;
 }
 
+#cognitiveAgents
+{
+    position: absolute;
+    left:10px;
+    top:10px;
+    
+    width: 280px;
+    height: 470px;
+   
+    overflow: auto;
+    
+    border: 1px solid lightgray;    
+    background-color: red;
+}
+
+*/
+
+
+
 #eraseZone
 {
     position: absolute;
+    padding-top: 10px;
     right: 10px;
     bottom: 10px;
     color: red;
@@ -31,22 +116,36 @@
 #newSetButton {
 	position: absolute;
 	vertical-align: top;	
-    top: 10px;
-    right: 400px;
+    top: 20px;
+    left: 300px;
 	padding: 6px 10px;
 	z-index: 999;
-	background-color: blue;/*#24a430;*/
+	background-color: yellow;/*#24a430;*/
+	border: none;
+	border-radius: 5px;
+	color: black;
+}
+
+#saveButton {
+	position: absolute;
+	vertical-align: bottom;	
+    bottom: 10px;
+    left: 300px;
+	padding: 6px 10px;
+	z-index: 999;
+	background-color: green;/*#24a430;*/
 	border: none;
 	border-radius: 5px;
 	color: #FFF;
 }
 
+
 #newSetNameEdit 
 {
     position: absolute;
 	vertical-align: top;	
-    top: 10px;
-    right: 200px;
+    top: 25px;
+    left: 440px;
 	z-index: 999;    
 }
 
@@ -55,7 +154,7 @@
     position: absolute;
     
     right: 10px;
-    top: 10px;
+    top: 25px;
 
 
 
@@ -107,7 +206,37 @@ canvas
 
   /* This makes things *much* easier */
   /*box-sizing: border-box;*/
+    
 }
 
 
 
+
+
+
+.fiveWEdits {
+    width: 100%;
+}
+
+
+.tips {
+    font-size: 14px;
+    color: dimgray;
+    text-align: left;
+    padding: 5px;
+    font-family: sans-serif;
+    padding-top: 10px;
+}
+
+#notetextarea {
+    width: 100%;
+    font-size: 12px;
+    color: brown;
+}
+
+#deleteSetButton {
+    background-color: red;
+    vertical-align: bottom;
+    right: 120px;
+    bottom: 10px;
+}
