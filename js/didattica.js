@@ -151,43 +151,46 @@ function drawObjectsSet(setName)
                  
     console.log("setName: " + setName);
     
-    for (objectName in sets[setName]['objects'])
+    if (setName != null && setName != "")
     {
-        // Ottengo le coordinate del rettangolo minimo che contiene la lista di punti 
-        var ie = getImageEdge(getPoints(objectName));
-        var canvasId = "canvas"+objectName+getProgressiveNumber();
-        var cposition = sets[setName]['objects'][objectName].position;
+        for (objectName in sets[setName]['objects'])
+        {
+            // Ottengo le coordinate del rettangolo minimo che contiene la lista di punti
+            var ie = getImageEdge(getPoints(objectName));
+            var canvasId = "canvas"+objectName+getProgressiveNumber();
+            var cposition = sets[setName]['objects'][objectName].position;
 
-        sets[setName]['objects'][objectName]['canvas_id'] = canvasId;
-        
-        
-        console.log("Position: ", cposition);
-        
-        // Creo un nuovo canvas
-        var c1 = $('<canvas id="' + 
-                            canvasId  + 
-                   '" width="' + 
-                            Math.floor((ie[1] - ie[0])*0.325) + 
-                   '" height="'+
-                            Math.floor((ie[3]-ie[2])*0.325) +
-                   '" class="canvasInRightPanel"></canvas>');
-
-        c1.draggable();                        
-
-        
-        c1.css('position', 'absolute');
-        c1.css('left', cposition[0]);
-        c1.css('top', cposition[1]);
-        
-
-        // Aggiungo il canvas c1 a #cpn
-        c1.appendTo('#cpn');
-        c1.zIndex(99);
+            sets[setName]['objects'][objectName]['canvas_id'] = canvasId;
 
 
-        // Disegno sul canvas appena aggiunto a #cpn
-        drawObjectInCanvas(objectName, canvasId, 0.325, true, 'blue'); 
-    }   
+            console.log("Position: ", cposition);
+
+            // Creo un nuovo canvas
+            var c1 = $('<canvas id="' +
+                                canvasId  +
+                       '" width="' +
+                                Math.floor((ie[1] - ie[0])*0.325) +
+                       '" height="'+
+                                Math.floor((ie[3]-ie[2])*0.325) +
+                       '" class="canvasInRightPanel"></canvas>');
+
+            c1.draggable();
+
+
+            c1.css('position', 'absolute');
+            c1.css('left', cposition[0]);
+            c1.css('top', cposition[1]);
+
+
+            // Aggiungo il canvas c1 a #cpn
+            c1.appendTo('#cpn');
+            c1.zIndex(99);
+
+
+            // Disegno sul canvas appena aggiunto a #cpn
+            drawObjectInCanvas(objectName, canvasId, 0.325, true, 'blue');
+        }
+    }
 
 }
 
@@ -284,7 +287,9 @@ $(document).ready(
         
         // I dati memorizzati in localstorage vengono caricati nella struttura dati js
         loadDataStructureFromLocalStorage();    
+        // Riempio il combobox per la selezione degli insiemi
         populateSelectSetComboBox();        
+
         drawObjectsSet(selectedSet);
         loadInfoFromSet($('#selectSet option:selected').text());
         //addInfoToSet(setName);
@@ -512,6 +517,10 @@ $(document).ready(
                         // Disegno sul canvas appena aggiunto a #cpn
                         drawObjectInCanvas(e.target.id, canvasId, 0.325, true, 'blue'); 
                     }                    
+                }
+                else
+                {
+                    alert("Non esiste alcun insieme a cui aggiungere l'oggetto. Prima, creane uno.");
                 }
             }            
         );

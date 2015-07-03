@@ -222,7 +222,7 @@ function loadInfoFromSet(setName)
     else
     {
         alert("L'insieme da cui stai tentanto di prelevare info non esiste");
-        console.log("L'insieme da cui stai tentanto di prelevare info non esiste");
+        console.warn("L'insieme da cui stai tentanto di prelevare info non esiste");
         return false;
     }    
 }
@@ -311,15 +311,21 @@ function setAllObjectsSetPosition(setName)
         console.log(offset.left + ", " + offset.top);        
     }*/
     
-    for (var objectName in sets[setName]['objects'])
-    {
-        var canvasId = sets[setName]['objects'][objectName]['canvas_id'];
-        console.log(canvasId);
-        var offset = $('#'+canvasId).position();
-        
+    console.log("SetName: " + setName);
 
-        
-        setObjectSetPosition(setName, objectName, [Math.floor(offset.left), Math.floor(offset.top)]);    
+
+    if (setName != null && setName != "")
+    {
+        for (var objectName in sets[setName]['objects'])
+        {
+            var canvasId = sets[setName]['objects'][objectName]['canvas_id'];
+            console.log(canvasId);
+            var offset = $('#'+canvasId).position();
+
+
+
+            setObjectSetPosition(setName, objectName, [Math.floor(offset.left), Math.floor(offset.top)]);
+        }
     }
 }
 

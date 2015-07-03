@@ -390,6 +390,7 @@ function drawObjectInRightCanvas(objectName)
     
     
 
+
             
             
 $('#myButton').click(
@@ -469,6 +470,48 @@ $('#addTag').click(
     }    
 );    
     
+// Da sistemare
+function checkOnName(n)
+{
+    // 0 - Ok
+    // 1 - Stringa vuota
+    // 2 - Inizia con un numero
+    // 3 - Contiene uno spazio
+    // 4 - Carattere non ammesso
+
+
+    if (n.length > 0)
+    {
+        if (n[0] >= '0' && n[0] <= '9')
+            return 2;
+
+        for (var i = 0; i< n.length; i++)
+        {
+            if (n[i] == ' ')
+                return 3;
+
+            if (n[i] >= 'a' && n[i] <= 'z')
+            {
+            }
+            else if (n[i] >= 'A' && n[i] <= 'Z')
+            {
+            }
+            else if (n[i] >= '0' && n[i] <= '9')
+            {
+            }
+            else
+                return 4;
+
+        }
+
+
+    }
+    else
+        return 1;
+
+    return 0;
+}
+
 // Aggiunge un oggetto alla struttura dati e lo rappresenta graficamente sul canvas di destra
 $('#addNewObject').click(
     function()
@@ -485,32 +528,55 @@ $('#addNewObject').click(
         // Recupero il nome da assegnare all'oggetto dal campo editObjectName
         var objectName = document.getElementById('editObjectName').value;
             
-        // Se l'inserimento nella struttura dati va a buone fine...
-        if (newObject(objectName))
-        {           
-            // Ri-popolo il combobox per la selezione degli oggetti
-            populateSelectObjectComboBox(); //
-            // Imposto l'oggetto correntemente selezionato
-            setSelectedObject('selectObject', objectName); // 
+        var checkId = checkOnName(objectName);
+        if (checkId == 0)
+        {
+            // Se l'inserimento nella struttura dati va a buone fine...
+            if (newObject(objectName))
+            {
+                // Ri-popolo il combobox per la selezione degli oggetti
+                populateSelectObjectComboBox(); //
+                // Imposto l'oggetto correntemente selezionato
+                setSelectedObject('selectObject', objectName); //
+
+                setPoints(objectName, pointList); //
+
+                // Ri-popolo il combobox per la selezione dei tag
+                populateSelectTagComboBox();
+                // Visualizzo i div che rappresentano i tag associati all'oggetto
+                showAllDivTags();
+
+                // Pulisco il canvas di destra
+                clearRightCanvas();
+
+                // Disegno l'oggetto nel canvas di destra
+                drawObjectInRightCanvas(objectName);
+
+                // Ridisegno l'immagine sul canvas di sinistra andando a sovrascrivere altro
+                paintImageOnLeftCanvas();
+
+                // Svuoto la lista di punti
+                pointList = [];
+
+            }
+        }
+        else
+        {
+                // 0 - Ok
+                // 1 - Stringa vuota
+                // 2 - Inizia con un numero
+                // 3 - Contiene uno spazio
+                // 4 - Carattere non ammesso
+
             
-            setPoints(objectName, pointList); //
-            
-            // Ri-popolo il combobox per la selezione dei tag
-            populateSelectTagComboBox();
-            // Visualizzo i div che rappresentano i tag associati all'oggetto
-            showAllDivTags();
-            
-            // Pulisco il canvas di destra
-            clearRightCanvas();
-            
-            // Disegno l'oggetto nel canvas di destra
-            drawObjectInRightCanvas(objectName);
-            
-            // Ridisegno l'immagine sul canvas di sinistra andando a sovrascrivere altro
-            paintImageOnLeftCanvas();
-            
-            // Svuoto la lista di punti
-            pointList = [];       
+            if (checkId == 1)
+                alert("Il nome dell'oggetto inserito, non deve essere 'vuoto'");
+            else if (checkId == 2)
+                alert("Il nome dell'oggetto inserito, non puo' cominciare con un numero");
+            else if (checkId == 3)
+                alert("Il nome dell'oggetto inserito, non puo' contenere spazi");
+            else if (checkId == 4)
+                alert("Il nome dell'oggetto inserito, contiene caratteri non ammessi. Quelli ammessi sono: a-z, A-Z, 0-9");
 
         }
     });
