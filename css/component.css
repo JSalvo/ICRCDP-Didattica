@@ -150,11 +150,25 @@
 	color: #FFF;
 }
 
+/*
+#divOpenFile {
+	position: absolute;
+	vertical-align: bottom;
+	left: 30px;
+	bottom: 30px;
+
+	z-index: 999;
+	border: none;
+
+}*/
+
 
 .btn-crop img {
 	vertical-align: middle;
 	margin-left: 8px;
 }
+
+
 
 #myCanvas {
    	position: absolute;

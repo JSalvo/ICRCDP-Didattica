@@ -15,8 +15,11 @@ $(document).ready(
     
         $('#openFileDialogButton').on('click', function()
         {
-            var fileToLoad = $('#files').val().split("\\").pop();
+            //var fileToLoad = $('#files').val().split("\\").pop();
             
+
+            var fileToLoad = $('#comboSelectImage option:selected').text();
+            console.log(fileToLoad);
             localStorage.setItem('ImageToLoad', fileToLoad);
             location.reload(); 
             

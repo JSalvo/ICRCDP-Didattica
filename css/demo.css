@@ -193,3 +193,27 @@ a:hover, a:focus {
     bottom: 35px;   
     background-color: black;
 }
+
+
+
+#footer
+{
+    height: 70px;
+    background-color: white;
+}
+
+#logosponsor
+{
+    margin-right: 300px;
+    float: right;
+        background-color: white;
+
+}
+
+#logocentro
+{
+
+     margin-left: 300px;
+    float: left;
+        background-color: white;
+}

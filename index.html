@@ -46,7 +46,7 @@
                                 localStorage.setItem('ImageToLoad', '');
                             //alert(imgName);
                             
-                            document.write("<img id='imgp' class='resize-image' src='img/" + imgName + "'>");
+                            document.write("<img id='imgp' class='resize-image' src='img/incisioni/" + imgName + "'>");
                         
                         </script>
                         
@@ -58,16 +58,25 @@
                     
                     <form>
                     
-                        
+                    <!--
                     <div id="divOpenFile">
                         <input id="files" type="file" name="files[]"/>
                     </div>
-                    
+                    -->
+
 
                     <button id="openFileDialogButton" class="btn-openfile" >Carica</button>
                     
                     </form>
                     
+                    <div id="divOpenFile">
+                        <select id="comboSelectImage">
+                            <option value="agricolturapugnali.jpg">agricolturapugnali.jpg</option>
+                            <option value="guerrieri.png">guerrieri.png</option>
+                            <option value="rosacamuna.png">rosacamuna.png</option>
+                        </select>
+                    </div>
+
                     
 				</div>
 				<div class="a-tip">
@@ -81,6 +90,17 @@
 
 			</div><!-- /content -->
 			<!-- Related demos -->
+
+            <div id=footer>
+                <div id='logocentro'>
+                    <img src="img/loghi/logoccsp.jpg" width="184px" height="60px"></img>
+
+                </div>
+
+                <div id='logosponsor'>
+                    <img src="img/loghi/fondbresclog.png" width="181px" height="60px"></img>
+                </div>
+            </div>
 
 		</div> <!-- /container -->
 		<script src="js/jquery-2.1.1.min.js"></script>
